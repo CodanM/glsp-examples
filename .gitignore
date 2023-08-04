@@ -47,4 +47,6 @@ lib
 tsconfig.tsbuildinfo
 
 
-
+**/.checkstyle
+package-lock.json
+workspace/*
