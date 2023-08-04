@@ -25,5 +25,11 @@ svg {
 }
 
 .tasklist-node {
-    fill: #f1bd6c;
+    fill: #5893eb;
+}
+
+.tasklist-edge {
+    outline-color: #ac1717;
+    fill: #358121;
+    outline-width: 5px;
 }

@@ -21,10 +21,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
+import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
+import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
+import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
@@ -43,6 +46,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTasks().stream()
             .map(this::createTaskNode)
             .forEachOrdered(graph.getChildren()::add);
+         taskList.getTransitions().stream()
+            .map(this::createTransitionEdge)
+            .forEachOrdered(graph.getChildren()::add);
       }
    }
 
@@ -57,4 +63,16 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       return taskNodeBuilder.build();
    }
 
+   protected GEdge createTransitionEdge(final Transition transition) {
+      GEdgeBuilder transitionEdgeBuilder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
+         .id(idGenerator.getOrCreateId(transition))
+         // .addCssClass("tasklist-edge")
+         .sourceId(transition.getSource().getId())
+         .targetId(transition.getTarget().getId())
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(transition.getName()).id(transition.getId() + "_label").build());
+
+      applyEdgeData(transition, transitionEdgeBuilder);
+      return transitionEdgeBuilder.build();
+   }
 }
