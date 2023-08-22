@@ -10,16 +10,15 @@
  */
 package org.eclipse.glsp.example.tasklist.model;
 
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Task</b></em>'.
+ * A representation of the model object '<em><b>Task Node</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTask()
- * @model
+ * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskNode()
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface Task extends Connectable {
-} // Task
+public interface TaskNode extends Identifiable {
+} // TaskNode

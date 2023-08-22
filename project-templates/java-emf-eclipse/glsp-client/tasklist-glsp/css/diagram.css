@@ -29,7 +29,6 @@ svg {
 }
 
 .tasklist-edge {
-    outline-color: #ac1717;
-    fill: #358121;
-    outline-width: 5px;
+    stroke: red;
+    stroke-width: 3px;
 }

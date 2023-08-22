@@ -22,5 +22,5 @@ public final class TaskListModelTypes {
 
    public static final String TASK = DefaultTypes.NODE;
    public static final String TRANSITION = DefaultTypes.EDGE;
-
+   public static final String DECISION = DefaultTypes.NODE_DIAMOND;
 }

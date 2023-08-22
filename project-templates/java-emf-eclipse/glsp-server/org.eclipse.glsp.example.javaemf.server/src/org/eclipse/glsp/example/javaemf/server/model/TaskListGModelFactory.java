@@ -19,6 +19,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
+import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
@@ -46,9 +47,13 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTasks().stream()
             .map(this::createTaskNode)
             .forEachOrdered(graph.getChildren()::add);
+         taskList.getDecisions().stream()
+            .map(this::createDecisionNode)
+            .forEachOrdered(graph.getChildren()::add);
          taskList.getTransitions().stream()
             .map(this::createTransitionEdge)
             .forEachOrdered(graph.getChildren()::add);
+
       }
    }
 
@@ -63,10 +68,21 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       return taskNodeBuilder.build();
    }
 
+   protected GNode createDecisionNode(final Decision decision) {
+      GNodeBuilder decisionNodeBuilder = new GNodeBuilder(TaskListModelTypes.DECISION)
+         .id(idGenerator.getOrCreateId(decision))
+         .addCssClass("tasklist-node")
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(decision.getName()).id(decision.getId() + "_label").build())
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
+
+      applyShapeData(decision, decisionNodeBuilder);
+      return decisionNodeBuilder.build();
+   }
+
    protected GEdge createTransitionEdge(final Transition transition) {
       GEdgeBuilder transitionEdgeBuilder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
          .id(idGenerator.getOrCreateId(transition))
-         // .addCssClass("tasklist-edge")
+         .addCssClass("tasklist-edge")
          .sourceId(transition.getSource().getId())
          .targetId(transition.getTarget().getId())
          .add(new GLabelBuilder(DefaultTypes.LABEL)
