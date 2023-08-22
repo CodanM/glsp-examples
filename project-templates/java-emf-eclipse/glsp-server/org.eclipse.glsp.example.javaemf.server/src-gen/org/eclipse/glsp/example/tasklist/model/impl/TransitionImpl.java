@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.glsp.example.tasklist.model.Connectable;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
+import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 
 /**
@@ -36,55 +36,55 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * @generated
  */
 public class TransitionImpl extends IdentifiableImpl implements Transition {
-	/**
+   /**
     * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @see #getSource()
     * @generated
     * @ordered
     */
-	protected Connectable source;
+   protected Task source;
 
-	/**
+   /**
     * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @see #getTarget()
     * @generated
     * @ordered
     */
-	protected Connectable target;
+   protected Task target;
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	protected TransitionImpl() {
+   protected TransitionImpl() {
       super();
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	protected EClass eStaticClass() {
+   @Override
+   protected EClass eStaticClass() {
       return ModelPackage.Literals.TRANSITION;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Connectable getSource() {
+   @Override
+   public Task getSource() {
       if (source != null && source.eIsProxy()) {
          InternalEObject oldSource = (InternalEObject)source;
-         source = (Connectable)eResolveProxy(oldSource);
+         source = (Task)eResolveProxy(oldSource);
          if (source != oldSource) {
             if (eNotificationRequired())
                eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__SOURCE, oldSource, source));
@@ -93,23 +93,23 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
       return source;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public Connectable basicGetSource() {
+   public Task basicGetSource() {
       return source;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
    @Override
-   public void setSource(Connectable newSource) {
-      Connectable oldSource = source;
+   public void setSource(Task newSource) {
+      Task oldSource = source;
       source = newSource;
       if (eNotificationRequired())
          eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__SOURCE, oldSource, source));
@@ -117,14 +117,14 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Connectable getTarget() {
+   @Override
+   public Task getTarget() {
       if (target != null && target.eIsProxy()) {
          InternalEObject oldTarget = (InternalEObject)target;
-         target = (Connectable)eResolveProxy(oldTarget);
+         target = (Task)eResolveProxy(oldTarget);
          if (target != oldTarget) {
             if (eNotificationRequired())
                eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__TARGET, oldTarget, target));
@@ -133,23 +133,23 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
       return target;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public Connectable basicGetTarget() {
+   public Task basicGetTarget() {
       return target;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
    @Override
-   public void setTarget(Connectable newTarget) {
-      Connectable oldTarget = target;
+   public void setTarget(Task newTarget) {
+      Task oldTarget = target;
       target = newTarget;
       if (eNotificationRequired())
          eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__TARGET, oldTarget, target));
@@ -157,11 +157,11 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+   @Override
+   public Object eGet(int featureID, boolean resolve, boolean coreType) {
       switch (featureID) {
          case ModelPackage.TRANSITION__SOURCE:
             if (resolve) return getSource();
@@ -173,49 +173,49 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
       return super.eGet(featureID, resolve, coreType);
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+   @Override
+   public void eSet(int featureID, Object newValue) {
       switch (featureID) {
          case ModelPackage.TRANSITION__SOURCE:
-            setSource((Connectable)newValue);
+            setSource((Task)newValue);
             return;
          case ModelPackage.TRANSITION__TARGET:
-            setTarget((Connectable)newValue);
+            setTarget((Task)newValue);
             return;
       }
       super.eSet(featureID, newValue);
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public void eUnset(int featureID) {
+   @Override
+   public void eUnset(int featureID) {
       switch (featureID) {
          case ModelPackage.TRANSITION__SOURCE:
-            setSource((Connectable)null);
+            setSource((Task)null);
             return;
          case ModelPackage.TRANSITION__TARGET:
-            setTarget((Connectable)null);
+            setTarget((Task)null);
             return;
       }
       super.eUnset(featureID);
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public boolean eIsSet(int featureID) {
+   @Override
+   public boolean eIsSet(int featureID) {
       switch (featureID) {
          case ModelPackage.TRANSITION__SOURCE:
             return source != null;

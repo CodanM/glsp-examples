@@ -27,13 +27,13 @@ import org.eclipse.glsp.example.tasklist.model.*;
  * @generated
  */
 public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
-	/**
+   /**
     * Creates the default factory implementation.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public static ModelFactory init() {
+   public static ModelFactory init() {
       try {
          ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory(ModelPackage.eNS_URI);
          if (theModelFactory != null) {
@@ -46,107 +46,83 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
       return new ModelFactoryImpl();
    }
 
-	/**
+   /**
     * Creates an instance of the factory.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public ModelFactoryImpl() {
+   public ModelFactoryImpl() {
       super();
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public EObject create(EClass eClass) {
+   @Override
+   public EObject create(EClass eClass) {
       switch (eClass.getClassifierID()) {
          case ModelPackage.TASK_LIST: return createTaskList();
          case ModelPackage.TASK: return createTask();
          case ModelPackage.TRANSITION: return createTransition();
-         case ModelPackage.DECISION: return createDecision();
-         case ModelPackage.COMPARTMENT: return createCompartment();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public TaskList createTaskList() {
+   @Override
+   public TaskList createTaskList() {
       TaskListImpl taskList = new TaskListImpl();
       return taskList;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Task createTask() {
+   @Override
+   public Task createTask() {
       TaskImpl task = new TaskImpl();
       return task;
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Transition createTransition() {
+   @Override
+   public Transition createTransition() {
       TransitionImpl transition = new TransitionImpl();
       return transition;
    }
 
-	/**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    */
-   @Override
-   public Decision createDecision() {
-      DecisionImpl decision = new DecisionImpl();
-      return decision;
-   }
-
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
    @Override
-   public Compartment createCompartment() {
-      CompartmentImpl compartment = new CompartmentImpl();
-      return compartment;
-   }
-
-   /**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	@Override
-	public ModelPackage getModelPackage() {
+   public ModelPackage getModelPackage() {
       return (ModelPackage)getEPackage();
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @deprecated
     * @generated
     */
-	@Deprecated
-	public static ModelPackage getPackage() {
+   @Deprecated
+   public static ModelPackage getPackage() {
       return ModelPackage.eINSTANCE;
    }
 

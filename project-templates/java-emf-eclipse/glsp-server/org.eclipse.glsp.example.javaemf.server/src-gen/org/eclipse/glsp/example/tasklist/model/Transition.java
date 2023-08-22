@@ -29,19 +29,19 @@ package org.eclipse.glsp.example.tasklist.model;
  * @generated
  */
 public interface Transition extends Identifiable {
-	/**
+   /**
     * Returns the value of the '<em><b>Source</b></em>' reference.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @return the value of the '<em>Source</em>' reference.
-    * @see #setSource(Connectable)
+    * @see #setSource(Task)
     * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTransition_Source()
     * @model required="true"
     * @generated
     */
-	Connectable getSource();
+   Task getSource();
 
-	/**
+   /**
     * Sets the value of the '{@link org.eclipse.glsp.example.tasklist.model.Transition#getSource <em>Source</em>}' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -49,21 +49,21 @@ public interface Transition extends Identifiable {
     * @see #getSource()
     * @generated
     */
-   void setSource(Connectable value);
+   void setSource(Task value);
 
    /**
     * Returns the value of the '<em><b>Target</b></em>' reference.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @return the value of the '<em>Target</em>' reference.
-    * @see #setTarget(Connectable)
+    * @see #setTarget(Task)
     * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTransition_Target()
     * @model required="true"
     * @generated
     */
-	Connectable getTarget();
+   Task getTarget();
 
-	/**
+   /**
     * Sets the value of the '{@link org.eclipse.glsp.example.tasklist.model.Transition#getTarget <em>Target</em>}' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -71,6 +71,6 @@ public interface Transition extends Identifiable {
     * @see #getTarget()
     * @generated
     */
-   void setTarget(Connectable value);
+   void setTarget(Task value);
 
 } // Transition

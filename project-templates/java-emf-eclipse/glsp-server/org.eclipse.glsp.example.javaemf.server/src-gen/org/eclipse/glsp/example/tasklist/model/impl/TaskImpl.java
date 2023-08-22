@@ -11,6 +11,7 @@
 package org.eclipse.glsp.example.tasklist.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
 
@@ -22,22 +23,22 @@ import org.eclipse.glsp.example.tasklist.model.Task;
  * @generated
  */
 public class TaskImpl extends IdentifiableImpl implements Task {
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	protected TaskImpl() {
+   protected TaskImpl() {
       super();
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	protected EClass eStaticClass() {
+   @Override
+   protected EClass eStaticClass() {
       return ModelPackage.Literals.TASK;
    }
 

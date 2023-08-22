@@ -21,5 +21,5 @@ package org.eclipse.glsp.example.tasklist.model;
  * @model
  * @generated
  */
-public interface Task extends Connectable {
+public interface Task extends Identifiable {
 } // Task
