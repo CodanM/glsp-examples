@@ -13,13 +13,14 @@ package org.eclipse.glsp.example.tasklist.model;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Task</b></em>'.
+ * A representation of the model object '<em><b>Decision</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTask()
+ * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getDecision()
  * @model
  * @generated
  */
-public interface Task extends Connectable {
-} // Task
+public interface Decision extends Connectable {
+
+} // Decision

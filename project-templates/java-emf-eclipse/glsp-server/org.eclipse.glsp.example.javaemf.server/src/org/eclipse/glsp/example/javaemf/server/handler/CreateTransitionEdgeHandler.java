@@ -24,9 +24,9 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
+import org.eclipse.glsp.example.tasklist.model.Connectable;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
-import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.GModelElement;
@@ -72,19 +72,15 @@ public class CreateTransitionEdgeHandler extends AbstractEMFCreateEdgeOperationH
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
-      Task sourceTask = taskList.getTasks().stream().filter(t -> t.getId().equals(source.getId())).findAny()
-         .orElseThrow();
-      Task targetTask = taskList.getTasks().stream().filter(t -> t.getId().equals(target.getId())).findAny()
-         .orElseThrow();
+      Connectable sourceConnectable = (Connectable) taskList.findById(source.getId());
+      Connectable targetConnectable = (Connectable) taskList.findById(target.getId());
 
-      Transition newTransition = createTransition(sourceTask, targetTask);
+      Transition newTransition = createTransition(sourceConnectable, targetConnectable);
       Command transitionCommand = AddCommand.create(editingDomain, taskList,
          ModelPackage.Literals.TASK_LIST__TRANSITIONS, newTransition);
 
-      Shape sourceShape = (Shape) diagram.getElements().stream()
-         .filter(ne -> ne.getSemanticElement().getElementId().equals(source.getId())).findAny().orElseThrow();
-      Shape targetShape = (Shape) diagram.getElements().stream()
-         .filter(ne -> ne.getSemanticElement().getElementId().equals(target.getId())).findAny().orElseThrow();
+      Shape sourceShape = findShapeById(diagram, source.getId());
+      Shape targetShape = findShapeById(diagram, target.getId());
 
       Edge edge = createEdge(idGenerator.getOrCreateId(newTransition), sourceShape, targetShape);
       Command edgeCommand = AddCommand.create(editingDomain, diagram,
@@ -96,7 +92,7 @@ public class CreateTransitionEdgeHandler extends AbstractEMFCreateEdgeOperationH
       return compoundCommand;
    }
 
-   protected Transition createTransition(final Task source, final Task target) {
+   protected Transition createTransition(final Connectable source, final Connectable target) {
       Transition newTransition = ModelFactory.eINSTANCE.createTransition();
       newTransition.setId(UUID.randomUUID().toString());
       newTransition.setSource(source);
@@ -122,5 +118,10 @@ public class CreateTransitionEdgeHandler extends AbstractEMFCreateEdgeOperationH
       reference.setElementId(elementId);
       newTransition.setSemanticElement(reference);
       return newTransition;
+   }
+
+   private Shape findShapeById(final Diagram diagram, final String id) {
+      return (Shape) diagram.getElements().stream()
+         .filter(ne -> ne.getSemanticElement().getElementId().equals(id)).findAny().orElseThrow();
    }
 }

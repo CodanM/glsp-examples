@@ -11,34 +11,35 @@
 package org.eclipse.glsp.example.tasklist.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
-import org.eclipse.glsp.example.tasklist.model.Task;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Task</b></em>'.
+ * An implementation of the model object '<em><b>Compartment</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class TaskImpl extends IdentifiableImpl implements Task {
-	/**
+public class CompartmentImpl extends IdentifiableImpl implements Compartment {
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	protected TaskImpl() {
+   protected CompartmentImpl() {
       super();
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	protected EClass eStaticClass() {
-      return ModelPackage.Literals.TASK;
+   @Override
+   protected EClass eStaticClass() {
+      return ModelPackage.Literals.COMPARTMENT;
    }
 
-} //TaskImpl
+} //CompartmentImpl

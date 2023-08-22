@@ -28,36 +28,36 @@ import org.eclipse.glsp.example.tasklist.model.*;
  * @generated
  */
 public class ModelAdapterFactory extends AdapterFactoryImpl {
-   /**
+	/**
     * The cached model package.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   protected static ModelPackage modelPackage;
+	protected static ModelPackage modelPackage;
 
-   /**
+	/**
     * Creates an instance of the adapter factory.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   public ModelAdapterFactory() {
+	public ModelAdapterFactory() {
       if (modelPackage == null) {
          modelPackage = ModelPackage.eINSTANCE;
       }
    }
 
-   /**
+	/**
     * Returns whether this factory is applicable for the type of the object.
     * <!-- begin-user-doc -->
-    * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
-    * <!-- end-user-doc -->
+	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * <!-- end-user-doc -->
     * @return whether this factory is applicable for the type of the object.
     * @generated
     */
-   @Override
-   public boolean isFactoryForType(Object object) {
+	@Override
+	public boolean isFactoryForType(Object object) {
       if (object == modelPackage) {
          return true;
       }
@@ -67,14 +67,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
       return false;
    }
 
-   /**
+	/**
     * The switch that delegates to the <code>createXXX</code> methods.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   protected ModelSwitch<Adapter> modelSwitch =
-      new ModelSwitch<Adapter>() {
+	protected ModelSwitch<Adapter> modelSwitch =
+		new ModelSwitch<Adapter>() {
          @Override
          public Adapter caseIdentifiable(Identifiable object) {
             return createIdentifiableAdapter();
@@ -92,90 +92,144 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             return createTransitionAdapter();
          }
          @Override
+         public Adapter caseDecision(Decision object) {
+            return createDecisionAdapter();
+         }
+         @Override
+         public Adapter caseConnectable(Connectable object) {
+            return createConnectableAdapter();
+         }
+         @Override
+         public Adapter caseCompartment(Compartment object) {
+            return createCompartmentAdapter();
+         }
+         @Override
          public Adapter defaultCase(EObject object) {
             return createEObjectAdapter();
          }
       };
 
-   /**
+	/**
     * Creates an adapter for the <code>target</code>.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @param target the object to adapt.
     * @return the adapter for the <code>target</code>.
     * @generated
     */
-   @Override
-   public Adapter createAdapter(Notifier target) {
+	@Override
+	public Adapter createAdapter(Notifier target) {
       return modelSwitch.doSwitch((EObject)target);
    }
 
 
-   /**
+	/**
     * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
     * <!-- begin-user-doc -->
-    * This default implementation returns null so that we can easily ignore cases;
-    * it's useful to ignore a case when inheritance will catch all the cases anyway.
-    * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
     * @return the new adapter.
     * @see org.eclipse.glsp.example.tasklist.model.Identifiable
     * @generated
     */
-   public Adapter createIdentifiableAdapter() {
+	public Adapter createIdentifiableAdapter() {
       return null;
    }
 
-   /**
+	/**
     * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.TaskList <em>Task List</em>}'.
     * <!-- begin-user-doc -->
-    * This default implementation returns null so that we can easily ignore cases;
-    * it's useful to ignore a case when inheritance will catch all the cases anyway.
-    * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
     * @return the new adapter.
     * @see org.eclipse.glsp.example.tasklist.model.TaskList
     * @generated
     */
-   public Adapter createTaskListAdapter() {
+	public Adapter createTaskListAdapter() {
       return null;
    }
 
-   /**
+	/**
     * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Task <em>Task</em>}'.
     * <!-- begin-user-doc -->
-    * This default implementation returns null so that we can easily ignore cases;
-    * it's useful to ignore a case when inheritance will catch all the cases anyway.
-    * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
     * @return the new adapter.
     * @see org.eclipse.glsp.example.tasklist.model.Task
     * @generated
     */
-   public Adapter createTaskAdapter() {
+	public Adapter createTaskAdapter() {
       return null;
    }
 
-   /**
+	/**
     * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Transition <em>Transition</em>}'.
+    * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.example.tasklist.model.Transition
+    * @generated
+    */
+	public Adapter createTransitionAdapter() {
+      return null;
+   }
+
+	/**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Decision <em>Decision</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see org.eclipse.glsp.example.tasklist.model.Transition
+    * @see org.eclipse.glsp.example.tasklist.model.Decision
     * @generated
     */
-   public Adapter createTransitionAdapter() {
+   public Adapter createDecisionAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Connectable <em>Connectable</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.example.tasklist.model.Connectable
+    * @generated
+    */
+   public Adapter createConnectableAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Compartment <em>Compartment</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.example.tasklist.model.Compartment
+    * @generated
+    */
+   public Adapter createCompartmentAdapter() {
       return null;
    }
 
    /**
     * Creates a new adapter for the default case.
     * <!-- begin-user-doc -->
-    * This default implementation returns null.
-    * <!-- end-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
     * @return the new adapter.
     * @generated
     */
-   public Adapter createEObjectAdapter() {
+	public Adapter createEObjectAdapter() {
       return null;
    }
 

@@ -31,48 +31,48 @@ import org.eclipse.glsp.example.tasklist.model.*;
  * @generated
  */
 public class ModelSwitch<T> extends Switch<T> {
-   /**
+	/**
     * The cached model package
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   protected static ModelPackage modelPackage;
+	protected static ModelPackage modelPackage;
 
-   /**
+	/**
     * Creates an instance of the switch.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   public ModelSwitch() {
+	public ModelSwitch() {
       if (modelPackage == null) {
          modelPackage = ModelPackage.eINSTANCE;
       }
    }
 
-   /**
+	/**
     * Checks whether this is a switch for the given package.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @param ePackage the package in question.
     * @return whether this is a switch for the given package.
     * @generated
     */
-   @Override
-   protected boolean isSwitchFor(EPackage ePackage) {
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
       return ePackage == modelPackage;
    }
 
-   /**
+	/**
     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @return the first non-null result returned by a <code>caseXXX</code> call.
     * @generated
     */
-   @Override
-   protected T doSwitch(int classifierID, EObject theEObject) {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
       switch (classifierID) {
          case ModelPackage.IDENTIFIABLE: {
             Identifiable identifiable = (Identifiable)theEObject;
@@ -90,6 +90,7 @@ public class ModelSwitch<T> extends Switch<T> {
          case ModelPackage.TASK: {
             Task task = (Task)theEObject;
             T result = caseTask(task);
+            if (result == null) result = caseConnectable(task);
             if (result == null) result = caseIdentifiable(task);
             if (result == null) result = defaultCase(theEObject);
             return result;
@@ -101,83 +102,150 @@ public class ModelSwitch<T> extends Switch<T> {
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
+         case ModelPackage.DECISION: {
+            Decision decision = (Decision)theEObject;
+            T result = caseDecision(decision);
+            if (result == null) result = caseConnectable(decision);
+            if (result == null) result = caseIdentifiable(decision);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case ModelPackage.CONNECTABLE: {
+            Connectable connectable = (Connectable)theEObject;
+            T result = caseConnectable(connectable);
+            if (result == null) result = caseIdentifiable(connectable);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case ModelPackage.COMPARTMENT: {
+            Compartment compartment = (Compartment)theEObject;
+            T result = caseCompartment(compartment);
+            if (result == null) result = caseIdentifiable(compartment);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
          default: return defaultCase(theEObject);
       }
    }
 
-   /**
+	/**
     * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
     * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch.
-    * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
     * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseIdentifiable(Identifiable object) {
+	public T caseIdentifiable(Identifiable object) {
       return null;
    }
 
-   /**
+	/**
     * Returns the result of interpreting the object as an instance of '<em>Task List</em>'.
     * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch.
-    * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
     * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Task List</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseTaskList(TaskList object) {
+	public T caseTaskList(TaskList object) {
       return null;
    }
 
-   /**
+	/**
     * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
     * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch.
-    * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
     * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Task</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseTask(Task object) {
+	public T caseTask(Task object) {
       return null;
    }
 
-   /**
+	/**
     * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
     * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch.
-    * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
     * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseTransition(Transition object) {
+	public T caseTransition(Transition object) {
+      return null;
+   }
+
+	/**
+    * Returns the result of interpreting the object as an instance of '<em>Decision</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Decision</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseDecision(Decision object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Connectable</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Connectable</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseConnectable(Connectable object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Compartment</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Compartment</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseCompartment(Compartment object) {
       return null;
    }
 
    /**
     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
     * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch, but this is the last case anyway.
-    * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
     * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject)
     * @generated
     */
-   @Override
-   public T defaultCase(EObject object) {
+	@Override
+	public T defaultCase(EObject object) {
       return null;
    }
 

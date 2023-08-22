@@ -12,11 +12,15 @@ package org.eclipse.glsp.example.tasklist.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.glsp.example.tasklist.model.Compartment;
+import org.eclipse.glsp.example.tasklist.model.Connectable;
+import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Identifiable;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
@@ -31,33 +35,54 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * @generated
  */
 public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
-   /**
+	/**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	private EClass identifiableEClass = null;
+
+	/**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	private EClass taskListEClass = null;
+
+	/**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	private EClass taskEClass = null;
+
+	/**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	private EClass transitionEClass = null;
+
+	/**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   private EClass identifiableEClass = null;
+   private EClass decisionEClass = null;
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   private EClass taskListEClass = null;
+   private EClass connectableEClass = null;
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   private EClass taskEClass = null;
-
-   /**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    */
-   private EClass transitionEClass = null;
+   private EClass compartmentEClass = null;
 
    /**
     * Creates an instance of the model <b>Package</b>, registered with
@@ -68,36 +93,35 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * initialization of the package, or returns the registered package,
     * if one already exists.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @see org.eclipse.emf.ecore.EPackage.Registry
     * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#eNS_URI
     * @see #init()
     * @generated
     */
-   private ModelPackageImpl() {
+	private ModelPackageImpl() {
       super(eNS_URI, ModelFactory.eINSTANCE);
    }
-
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   private static boolean isInited = false;
+	private static boolean isInited = false;
 
-   /**
+	/**
     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
     *
     * <p>This method is used to initialize {@link ModelPackage#eINSTANCE} when that field is accessed.
     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @see #eNS_URI
     * @see #createPackageContents()
     * @see #initializePackageContents()
     * @generated
     */
-   public static ModelPackage init() {
+	public static ModelPackage init() {
       if (isInited) return (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
       // Obtain or create and register package
@@ -120,114 +144,154 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       return theModelPackage;
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EClass getIdentifiable() {
+	@Override
+	public EClass getIdentifiable() {
       return identifiableEClass;
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EAttribute getIdentifiable_Id() {
+	@Override
+	public EAttribute getIdentifiable_Id() {
       return (EAttribute)identifiableEClass.getEStructuralFeatures().get(0);
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EAttribute getIdentifiable_Name() {
+	@Override
+	public EAttribute getIdentifiable_Name() {
       return (EAttribute)identifiableEClass.getEStructuralFeatures().get(1);
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EClass getTaskList() {
+	@Override
+	public EClass getTaskList() {
       return taskListEClass;
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EReference getTaskList_Tasks() {
+	@Override
+	public EReference getTaskList_Tasks() {
       return (EReference)taskListEClass.getEStructuralFeatures().get(0);
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EReference getTaskList_Transitions() {
+	@Override
+	public EReference getTaskList_Transitions() {
       return (EReference)taskListEClass.getEStructuralFeatures().get(1);
    }
 
+	/**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	@Override
+	public EReference getTaskList_Decisions() {
+      return (EReference)taskListEClass.getEStructuralFeatures().get(2);
+   }
+
+	/**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EReference getTaskList_Compartments() {
+      return (EReference)taskListEClass.getEStructuralFeatures().get(3);
+   }
+
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
    @Override
-   public EClass getTask() {
+   public EOperation getTaskList__FindById__String() {
+      return taskListEClass.getEOperations().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EOperation getTaskList__GetAll() {
+      return taskListEClass.getEOperations().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	@Override
+	public EClass getTask() {
       return taskEClass;
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EClass getTransition() {
+	@Override
+	public EClass getTransition() {
       return transitionEClass;
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EReference getTransition_Source() {
+	@Override
+	public EReference getTransition_Source() {
       return (EReference)transitionEClass.getEStructuralFeatures().get(0);
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   @Override
-   public EReference getTransition_Target() {
+	@Override
+	public EReference getTransition_Target() {
       return (EReference)transitionEClass.getEStructuralFeatures().get(1);
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
    @Override
-   public ModelFactory getModelFactory() {
-      return (ModelFactory)getEFactoryInstance();
+   public EClass getDecision() {
+      return decisionEClass;
    }
 
    /**
@@ -235,16 +299,46 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * <!-- end-user-doc -->
     * @generated
     */
-   private boolean isCreated = false;
+   @Override
+   public EClass getConnectable() {
+      return connectableEClass;
+   }
 
    /**
-    * Creates the meta-model objects for the package.  This method is
-    * guarded to have no affect on any invocation but its first.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   public void createPackageContents() {
+   @Override
+   public EClass getCompartment() {
+      return compartmentEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	@Override
+	public ModelFactory getModelFactory() {
+      return (ModelFactory)getEFactoryInstance();
+   }
+
+	/**
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	private boolean isCreated = false;
+
+	/**
+    * Creates the meta-model objects for the package.  This method is
+    * guarded to have no affect on any invocation but its first.
+    * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+    * @generated
+    */
+	public void createPackageContents() {
       if (isCreated) return;
       isCreated = true;
 
@@ -256,29 +350,39 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       taskListEClass = createEClass(TASK_LIST);
       createEReference(taskListEClass, TASK_LIST__TASKS);
       createEReference(taskListEClass, TASK_LIST__TRANSITIONS);
+      createEReference(taskListEClass, TASK_LIST__DECISIONS);
+      createEReference(taskListEClass, TASK_LIST__COMPARTMENTS);
+      createEOperation(taskListEClass, TASK_LIST___FIND_BY_ID__STRING);
+      createEOperation(taskListEClass, TASK_LIST___GET_ALL);
 
       taskEClass = createEClass(TASK);
 
       transitionEClass = createEClass(TRANSITION);
       createEReference(transitionEClass, TRANSITION__SOURCE);
       createEReference(transitionEClass, TRANSITION__TARGET);
+
+      decisionEClass = createEClass(DECISION);
+
+      connectableEClass = createEClass(CONNECTABLE);
+
+      compartmentEClass = createEClass(COMPARTMENT);
    }
 
-   /**
+	/**
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-   /**
+	/**
     * Complete the initialization of the package and its meta-model.  This
     * method is guarded to have no affect on any invocation but its first.
     * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
     * @generated
     */
-   public void initializePackageContents() {
+	public void initializePackageContents() {
       if (isInitialized) return;
       isInitialized = true;
 
@@ -293,8 +397,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
       // Add supertypes to classes
       taskListEClass.getESuperTypes().add(this.getIdentifiable());
-      taskEClass.getESuperTypes().add(this.getIdentifiable());
+      taskEClass.getESuperTypes().add(this.getConnectable());
       transitionEClass.getESuperTypes().add(this.getIdentifiable());
+      decisionEClass.getESuperTypes().add(this.getConnectable());
+      connectableEClass.getESuperTypes().add(this.getIdentifiable());
+      compartmentEClass.getESuperTypes().add(this.getIdentifiable());
 
       // Initialize classes, features, and operations; add parameters
       initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -304,12 +411,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEClass(taskListEClass, TaskList.class, "TaskList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getTaskList_Tasks(), this.getTask(), null, "tasks", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_Decisions(), this.getDecision(), null, "decisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      EOperation op = initEOperation(getTaskList__FindById__String(), this.getIdentifiable(), "findById", 0, 1, IS_UNIQUE, IS_ORDERED);
+      addEParameter(op, ecorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+      initEOperation(getTaskList__GetAll(), this.getIdentifiable(), "getAll", 0, -1, IS_UNIQUE, IS_ORDERED);
 
       initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-      initEReference(getTransition_Source(), this.getTask(), null, "source", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getTransition_Target(), this.getTask(), null, "target", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTransition_Source(), this.getConnectable(), null, "source", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTransition_Target(), this.getConnectable(), null, "target", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(decisionEClass, Decision.class, "Decision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+      initEClass(connectableEClass, Connectable.class, "Connectable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+      initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       // Create resource
       createResource(eNS_URI);
