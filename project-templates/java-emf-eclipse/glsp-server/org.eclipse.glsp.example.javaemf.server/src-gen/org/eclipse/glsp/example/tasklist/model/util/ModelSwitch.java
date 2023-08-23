@@ -117,10 +117,10 @@ public class ModelSwitch<T> extends Switch<T> {
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
-         case ModelPackage.COMPARTMENT: {
-            Compartment compartment = (Compartment)theEObject;
-            T result = caseCompartment(compartment);
-            if (result == null) result = caseIdentifiable(compartment);
+         case ModelPackage.TASK_GROUP: {
+            TaskGroup taskGroup = (TaskGroup)theEObject;
+            T result = caseTaskGroup(taskGroup);
+            if (result == null) result = caseIdentifiable(taskGroup);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -219,17 +219,17 @@ public class ModelSwitch<T> extends Switch<T> {
    }
 
    /**
-    * Returns the result of interpreting the object as an instance of '<em>Compartment</em>'.
+    * Returns the result of interpreting the object as an instance of '<em>Task Group</em>'.
     * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
     * @param object the target of the switch.
-    * @return the result of interpreting the object as an instance of '<em>Compartment</em>'.
+    * @return the result of interpreting the object as an instance of '<em>Task Group</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseCompartment(Compartment object) {
+   public T caseTaskGroup(TaskGroup object) {
       return null;
    }
 

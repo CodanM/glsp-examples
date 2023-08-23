@@ -21,13 +21,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
+import org.eclipse.glsp.example.tasklist.model.TaskGroup;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
+import org.eclipse.glsp.graph.GCompartment;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
+import org.eclipse.glsp.graph.builder.impl.GCompartmentBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
@@ -53,14 +56,16 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTransitions().stream()
             .map(this::createTransitionEdge)
             .forEachOrdered(graph.getChildren()::add);
-
+         taskList.getCompartments().stream()
+            .map(this::createTaskGroupCompartment)
+            .forEachOrdered(graph.getChildren()::add);
       }
    }
 
    protected GNode createTaskNode(final Task task) {
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
          .id(idGenerator.getOrCreateId(task))
-         .addCssClass("tasklist-node")
+         .addCssClass("tasklist-task")
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(task.getName()).id(task.getId() + "_label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 
@@ -71,7 +76,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    protected GNode createDecisionNode(final Decision decision) {
       GNodeBuilder decisionNodeBuilder = new GNodeBuilder(TaskListModelTypes.DECISION)
          .id(idGenerator.getOrCreateId(decision))
-         .addCssClass("tasklist-node")
+         .addCssClass("tasklist-decision")
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(decision.getName()).id(decision.getId() + "_label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 
@@ -82,7 +87,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    protected GEdge createTransitionEdge(final Transition transition) {
       GEdgeBuilder transitionEdgeBuilder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
          .id(idGenerator.getOrCreateId(transition))
-         .addCssClass("tasklist-edge")
+         .addCssClass("tasklist-transition")
          .sourceId(transition.getSource().getId())
          .targetId(transition.getTarget().getId())
          .add(new GLabelBuilder(DefaultTypes.LABEL)
@@ -90,5 +95,16 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
       applyEdgeData(transition, transitionEdgeBuilder);
       return transitionEdgeBuilder.build();
+   }
+
+   protected GCompartment createTaskGroupCompartment(final TaskGroup taskGroup) {
+      GCompartmentBuilder taskGroupCompartmentBuilder = new GCompartmentBuilder(TaskListModelTypes.TASK_GROUP)
+         .id(idGenerator.getOrCreateId(taskGroup))
+         .addCssClass("tasklist-taskgroup")
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(taskGroup.getName()).id(taskGroup.getId() + "_label").build())
+         .layout(GConstants.Layout.HBOX);
+
+      // applyShapeData(taskGroup, taskGroupCompartmentBuilder);
+      return taskGroupCompartmentBuilder.build();
    }
 }

@@ -68,7 +68,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
          case ModelPackage.TASK: return createTask();
          case ModelPackage.TRANSITION: return createTransition();
          case ModelPackage.DECISION: return createDecision();
-         case ModelPackage.COMPARTMENT: return createCompartment();
+         case ModelPackage.TASK_GROUP: return createTaskGroup();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -124,9 +124,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     * @generated
     */
    @Override
-   public Compartment createCompartment() {
-      CompartmentImpl compartment = new CompartmentImpl();
-      return compartment;
+   public TaskGroup createTaskGroup() {
+      TaskGroupImpl taskGroup = new TaskGroupImpl();
+      return taskGroup;
    }
 
    /**

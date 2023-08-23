@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Identifiable;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
+import org.eclipse.glsp.example.tasklist.model.TaskGroup;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 
@@ -39,10 +39,10 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getDecisions <em>Decisions</em>}</li>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getCompartments <em>Compartments</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getDecisions <em>Decisions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getCompartments <em>Compartments</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,7 +52,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see #getTasks()
     * @generated
     * @ordered
@@ -63,7 +62,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see #getTransitions()
     * @generated
     * @ordered
@@ -74,7 +72,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * The cached value of the '{@link #getDecisions() <em>Decisions</em>}' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see #getDecisions()
     * @generated
     * @ordered
@@ -85,17 +82,15 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see #getCompartments()
     * @generated
     * @ordered
     */
-   protected EList<Compartment> compartments;
+   protected EList<TaskGroup> compartments;
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    protected TaskListImpl() {
@@ -105,7 +100,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
@@ -116,13 +110,12 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
    public EList<Task> getTasks() {
       if (tasks == null) {
-         tasks = new EObjectContainmentEList<>(Task.class, this, ModelPackage.TASK_LIST__TASKS);
+         tasks = new EObjectContainmentEList<Task>(Task.class, this, ModelPackage.TASK_LIST__TASKS);
       }
       return tasks;
    }
@@ -130,14 +123,12 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
    public EList<Transition> getTransitions() {
       if (transitions == null) {
-         transitions = new EObjectContainmentEList<>(Transition.class, this,
-            ModelPackage.TASK_LIST__TRANSITIONS);
+         transitions = new EObjectContainmentEList<Transition>(Transition.class, this, ModelPackage.TASK_LIST__TRANSITIONS);
       }
       return transitions;
    }
@@ -145,13 +136,12 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
    public EList<Decision> getDecisions() {
       if (decisions == null) {
-         decisions = new EObjectContainmentEList<>(Decision.class, this, ModelPackage.TASK_LIST__DECISIONS);
+         decisions = new EObjectContainmentEList<Decision>(Decision.class, this, ModelPackage.TASK_LIST__DECISIONS);
       }
       return decisions;
    }
@@ -159,14 +149,12 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public EList<Compartment> getCompartments() {
+   public EList<TaskGroup> getCompartments() {
       if (compartments == null) {
-         compartments = new EObjectResolvingEList<>(Compartment.class, this,
-            ModelPackage.TASK_LIST__COMPARTMENTS);
+         compartments = new EObjectResolvingEList<TaskGroup>(TaskGroup.class, this, ModelPackage.TASK_LIST__COMPARTMENTS);
       }
       return compartments;
    }
@@ -197,19 +185,17 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-      final NotificationChain msgs) {
+   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
-            return ((InternalEList<?>) getTasks()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
          case ModelPackage.TASK_LIST__TRANSITIONS:
-            return ((InternalEList<?>) getTransitions()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
          case ModelPackage.TASK_LIST__DECISIONS:
-            return ((InternalEList<?>) getDecisions()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>)getDecisions()).basicRemove(otherEnd, msgs);
       }
       return super.eInverseRemove(otherEnd, featureID, msgs);
    }
@@ -217,11 +203,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+   public Object eGet(int featureID, boolean resolve, boolean coreType) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             return getTasks();
@@ -238,28 +223,27 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @SuppressWarnings("unchecked")
    @Override
-   public void eSet(final int featureID, final Object newValue) {
+   public void eSet(int featureID, Object newValue) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             getTasks().clear();
-            getTasks().addAll((Collection<? extends Task>) newValue);
+            getTasks().addAll((Collection<? extends Task>)newValue);
             return;
          case ModelPackage.TASK_LIST__TRANSITIONS:
             getTransitions().clear();
-            getTransitions().addAll((Collection<? extends Transition>) newValue);
+            getTransitions().addAll((Collection<? extends Transition>)newValue);
             return;
          case ModelPackage.TASK_LIST__DECISIONS:
             getDecisions().clear();
-            getDecisions().addAll((Collection<? extends Decision>) newValue);
+            getDecisions().addAll((Collection<? extends Decision>)newValue);
             return;
          case ModelPackage.TASK_LIST__COMPARTMENTS:
             getCompartments().clear();
-            getCompartments().addAll((Collection<? extends Compartment>) newValue);
+            getCompartments().addAll((Collection<? extends TaskGroup>)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -268,11 +252,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public void eUnset(final int featureID) {
+   public void eUnset(int featureID) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             getTasks().clear();
@@ -293,11 +276,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public boolean eIsSet(final int featureID) {
+   public boolean eIsSet(int featureID) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             return tasks != null && !tasks.isEmpty();
@@ -314,14 +296,13 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public Object eInvoke(final int operationID, final EList<?> arguments) throws InvocationTargetException {
+   public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
       switch (operationID) {
          case ModelPackage.TASK_LIST___FIND_BY_ID__STRING:
-            return findById((String) arguments.get(0));
+            return findById((String)arguments.get(0));
          case ModelPackage.TASK_LIST___GET_ALL:
             return getAll();
       }

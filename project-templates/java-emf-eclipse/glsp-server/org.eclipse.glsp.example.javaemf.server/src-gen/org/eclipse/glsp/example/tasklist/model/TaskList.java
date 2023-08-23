@@ -70,7 +70,7 @@ public interface TaskList extends Identifiable {
 
    /**
     * Returns the value of the '<em><b>Compartments</b></em>' reference list.
-    * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.Compartment}.
+    * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.TaskGroup}.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @return the value of the '<em>Compartments</em>' reference list.
@@ -78,7 +78,7 @@ public interface TaskList extends Identifiable {
     * @model
     * @generated
     */
-   EList<Compartment> getCompartments();
+   EList<TaskGroup> getCompartments();
 
    /**
     * <!-- begin-user-doc -->

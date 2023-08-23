@@ -414,14 +414,14 @@ public interface ModelPackage extends EPackage {
    int DECISION_OPERATION_COUNT = CONNECTABLE_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskGroupImpl <em>Task Group</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl
-    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getCompartment()
+    * @see org.eclipse.glsp.example.tasklist.model.impl.TaskGroupImpl
+    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTaskGroup()
     * @generated
     */
-   int COMPARTMENT = 6;
+   int TASK_GROUP = 6;
 
    /**
     * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -430,7 +430,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int COMPARTMENT__ID = IDENTIFIABLE__ID;
+   int TASK_GROUP__ID = IDENTIFIABLE__ID;
 
    /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -439,25 +439,25 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int COMPARTMENT__NAME = IDENTIFIABLE__NAME;
+   int TASK_GROUP__NAME = IDENTIFIABLE__NAME;
 
    /**
-    * The number of structural features of the '<em>Compartment</em>' class.
+    * The number of structural features of the '<em>Task Group</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int COMPARTMENT_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+   int TASK_GROUP_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
 
    /**
-    * The number of operations of the '<em>Compartment</em>' class.
+    * The number of operations of the '<em>Task Group</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int COMPARTMENT_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+   int TASK_GROUP_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
    /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
@@ -628,14 +628,14 @@ public interface ModelPackage extends EPackage {
    EClass getConnectable();
 
    /**
-    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Compartment <em>Compartment</em>}'.
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.TaskGroup <em>Task Group</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the meta object for class '<em>Compartment</em>'.
-    * @see org.eclipse.glsp.example.tasklist.model.Compartment
+    * @return the meta object for class '<em>Task Group</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskGroup
     * @generated
     */
-   EClass getCompartment();
+   EClass getTaskGroup();
 
    /**
     * Returns the factory that creates the instances of the model.
@@ -801,14 +801,14 @@ public interface ModelPackage extends EPackage {
       EClass CONNECTABLE = eINSTANCE.getConnectable();
 
       /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskGroupImpl <em>Task Group</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * @see org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl
-       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getCompartment()
+       * @see org.eclipse.glsp.example.tasklist.model.impl.TaskGroupImpl
+       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTaskGroup()
        * @generated
        */
-      EClass COMPARTMENT = eINSTANCE.getCompartment();
+      EClass TASK_GROUP = eINSTANCE.getTaskGroup();
 
 	}
 

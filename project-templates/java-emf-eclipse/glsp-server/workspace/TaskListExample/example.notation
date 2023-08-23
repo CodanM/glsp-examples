@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="ASCII"?>
 <notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/glsp/notation">
   <semanticElement elementId="root"/>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="2d2d0f89-035e-469e-9654-daf42f152b54"/>
+    <position x="595.0" y="190.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="4d053f40-5a42-4cc4-bc56-5c12e27c49b5"/>
+    <position x="814.0" y="337.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="b7b53987-7157-4b9e-a54b-cf714f3f1261"/>
+    <position x="391.0" y="426.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="7bef2895-ec01-47fc-ad83-f3fbfa0ddcc9"/>
+    <position x="179.0" y="265.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="3711dbb3-4905-4462-a08a-235da8dd13bc"/>
+    <position x="287.0" y="177.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.0" target="//@elements.4">
+    <semanticElement elementId="7ebd2364-a500-4f1a-9b8f-286e1d1801cb"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.3" target="//@elements.2">
+    <semanticElement elementId="be87e63f-dce4-4d53-af02-7a5a0c9f820a"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.1" target="//@elements.2">
+    <semanticElement elementId="c2dfdbb2-ce99-403a-898e-a99ca014cbe5"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.2" target="//@elements.0">
+    <semanticElement elementId="a3777e25-66f2-4455-a02f-5d349c4a18fb"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.4" target="//@elements.3">
+    <semanticElement elementId="1a2d0b04-6016-4305-8bbe-6e1d6518b6a0"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.4" target="//@elements.1">
+    <semanticElement elementId="d477c272-237f-49f4-b6b9-f351c8457da1"/>
+  </elements>
 </notation:Diagram>

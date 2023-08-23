@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <example-model:TaskList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:example-model="http://www.eclipse.org/glsp/examples/tasklist" id="root" name="Task List">
+  <tasks id="2d2d0f89-035e-469e-9654-daf42f152b54" name="NewTask0"/>
+  <tasks id="4d053f40-5a42-4cc4-bc56-5c12e27c49b5" name="NewTask1"/>
+  <tasks id="b7b53987-7157-4b9e-a54b-cf714f3f1261" name="NewTask2"/>
+  <transitions id="7ebd2364-a500-4f1a-9b8f-286e1d1801cb" name="NewTransition0" source="2d2d0f89-035e-469e-9654-daf42f152b54" target="3711dbb3-4905-4462-a08a-235da8dd13bc"/>
+  <transitions id="be87e63f-dce4-4d53-af02-7a5a0c9f820a" name="NewTransition1" source="7bef2895-ec01-47fc-ad83-f3fbfa0ddcc9" target="b7b53987-7157-4b9e-a54b-cf714f3f1261"/>
+  <transitions id="c2dfdbb2-ce99-403a-898e-a99ca014cbe5" name="NewTransition2" source="4d053f40-5a42-4cc4-bc56-5c12e27c49b5" target="b7b53987-7157-4b9e-a54b-cf714f3f1261"/>
+  <transitions id="a3777e25-66f2-4455-a02f-5d349c4a18fb" name="NewTransition3" source="b7b53987-7157-4b9e-a54b-cf714f3f1261" target="2d2d0f89-035e-469e-9654-daf42f152b54"/>
+  <transitions id="1a2d0b04-6016-4305-8bbe-6e1d6518b6a0" name="NewTransition4" source="3711dbb3-4905-4462-a08a-235da8dd13bc" target="7bef2895-ec01-47fc-ad83-f3fbfa0ddcc9"/>
+  <transitions id="d477c272-237f-49f4-b6b9-f351c8457da1" name="NewTransition5" source="3711dbb3-4905-4462-a08a-235da8dd13bc" target="4d053f40-5a42-4cc4-bc56-5c12e27c49b5"/>
+  <decisions id="7bef2895-ec01-47fc-ad83-f3fbfa0ddcc9" name="NewDecision3"/>
+  <decisions id="3711dbb3-4905-4462-a08a-235da8dd13bc" name="NewDecision4"/>
 </example-model:TaskList>

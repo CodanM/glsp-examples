@@ -24,11 +24,19 @@ svg {
     fill: inherit;
 }
 
-.tasklist-node {
-    fill: #5893eb;
+.tasklist-task {
+    fill: #3c67a8;
 }
 
-.tasklist-edge {
-    stroke: red;
+.tasklist-decision {
+    fill: #37a175;
+}
+
+.tasklist-transition {
+    stroke: #b31d1d;
     stroke-width: 3px;
+}
+
+.tasklist-taskgroup {
+    fill: #ffb46e
 }

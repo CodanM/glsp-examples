@@ -17,14 +17,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Connectable;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Identifiable;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
+import org.eclipse.glsp.example.tasklist.model.TaskGroup;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 
@@ -82,7 +81,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * <!-- end-user-doc -->
     * @generated
     */
-   private EClass compartmentEClass = null;
+   private EClass taskGroupEClass = null;
 
    /**
     * Creates an instance of the model <b>Package</b>, registered with
@@ -310,8 +309,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
-   public EClass getCompartment() {
-      return compartmentEClass;
+   public EClass getTaskGroup() {
+      return taskGroupEClass;
    }
 
    /**
@@ -365,7 +364,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
       connectableEClass = createEClass(CONNECTABLE);
 
-      compartmentEClass = createEClass(COMPARTMENT);
+      taskGroupEClass = createEClass(TASK_GROUP);
    }
 
 	/**
@@ -401,7 +400,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       transitionEClass.getESuperTypes().add(this.getIdentifiable());
       decisionEClass.getESuperTypes().add(this.getConnectable());
       connectableEClass.getESuperTypes().add(this.getIdentifiable());
-      compartmentEClass.getESuperTypes().add(this.getIdentifiable());
+      taskGroupEClass.getESuperTypes().add(this.getIdentifiable());
 
       // Initialize classes, features, and operations; add parameters
       initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -412,7 +411,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEReference(getTaskList_Tasks(), this.getTask(), null, "tasks", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Decisions(), this.getDecision(), null, "decisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getTaskList_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_Compartments(), this.getTaskGroup(), null, "compartments", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       EOperation op = initEOperation(getTaskList__FindById__String(), this.getIdentifiable(), "findById", 0, 1, IS_UNIQUE, IS_ORDERED);
       addEParameter(op, ecorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -429,7 +428,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
       initEClass(connectableEClass, Connectable.class, "Connectable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-      initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(taskGroupEClass, TaskGroup.class, "TaskGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       // Create resource
       createResource(eNS_URI);

@@ -30,7 +30,7 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
 
    @Override
    public List<PaletteItem> getItems(final Map<String, String> args) {
-      return Lists.newArrayList(nodes(), edges());
+      return Lists.newArrayList(nodes(), edges(), compartments());
    }
 
    private PaletteItem nodes() {
@@ -52,5 +52,15 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
 
    private PaletteItem edge(final String elementTypeId, final String label) {
       return new PaletteItem(elementTypeId, label, new TriggerEdgeCreationAction(elementTypeId));
+   }
+
+   public PaletteItem compartments() {
+      PaletteItem createTaskGroup = compartment(TaskListModelTypes.TASK_GROUP, "Task Group");
+      List<PaletteItem> compartments = Lists.newArrayList(createTaskGroup);
+      return PaletteItem.createPaletteGroup("compartments", "Compartments", compartments, "symbol-property");
+   }
+
+   private PaletteItem compartment(final String elementTypeId, final String label) {
+      return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
    }
 }

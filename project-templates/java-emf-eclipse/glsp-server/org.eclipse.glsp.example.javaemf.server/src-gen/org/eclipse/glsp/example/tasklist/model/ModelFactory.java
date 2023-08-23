@@ -66,13 +66,13 @@ public interface ModelFactory extends EFactory {
    Decision createDecision();
 
    /**
-    * Returns a new object of class '<em>Compartment</em>'.
+    * Returns a new object of class '<em>Task Group</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Compartment</em>'.
+    * @return a new object of class '<em>Task Group</em>'.
     * @generated
     */
-   Compartment createCompartment();
+   TaskGroup createTaskGroup();
 
    /**
     * Returns the package supported by this factory.
